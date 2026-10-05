@@ -1,0 +1,2 @@
+id,name,model_id/id,group_id/id,operation,domain
+access_user_lock_date_admin,user.lock.date admin,model_user_lock_date,base.group_system,crud,

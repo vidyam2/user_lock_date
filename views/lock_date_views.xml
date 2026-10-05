@@ -1,0 +1,52 @@
+<odoo>
+  <record id="view_user_lock_date_list" model="ir.ui.view">
+    <field name="name">user.lock.date.list</field>
+    <field name="model">user.lock.date</field>
+    <field name="arch" type="xml">
+      <list>
+        <field name="user_ids" widget="many2many_tags"/>
+        <field name="model_id"/>
+        <field name="method"/>
+        <field name="date_field_id"/>
+        <field name="lock_date"/>
+        <field name="active" column_invisible="1"/>
+      </list>
+    </field>
+  </record>
+
+  <record id="view_user_lock_date_form" model="ir.ui.view">
+    <field name="name">user.lock.date.form</field>
+    <field name="model">user.lock.date</field>
+    <field name="arch" type="xml">
+      <form>
+        <sheet>
+          <group>
+            <group>
+              <field name="user_ids" widget="many2many_tags"
+                     options="{'no_create': True}"/>
+              <field name="model_id" options="{'no_create': True}"/>
+              <field name="method"/>
+            </group>
+            <group>
+              <field name="date_field_id" options="{'no_create': True}"/>
+              <field name="lock_date"/>
+              <field name="record_filter"
+                     placeholder="[('move_type', '=', 'out_invoice')]"/>
+              <field name="active"/>
+            </group>
+          </group>
+        </sheet>
+      </form>
+    </field>
+  </record>
+
+  <record id="action_user_lock_date" model="ir.actions.act_window">
+    <field name="name">User Lock Dates</field>
+    <field name="res_model">user.lock.date</field>
+    <field name="view_mode">list,form</field>
+  </record>
+
+  <menuitem id="menu_user_lock_date" name="User Lock Dates"
+            parent="base.menu_administration"
+            action="action_user_lock_date" sequence="95"/>
+</odoo>
