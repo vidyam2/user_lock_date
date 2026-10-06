@@ -6,7 +6,7 @@
       <list>
         <field name="user_ids" widget="many2many_tags"/>
         <field name="model_id"/>
-        <field name="method"/>
+        <field name="method_name"/>
         <field name="date_field_id"/>
         <field name="lock_date"/>
         <field name="active" column_invisible="1"/>
@@ -25,7 +25,7 @@
               <field name="user_ids" widget="many2many_tags"
                      options="{'no_create': True}"/>
               <field name="model_id" options="{'no_create': True}"/>
-              <field name="method"/>
+              <field name="method_name" placeholder="create"/>
             </group>
             <group>
               <field name="date_field_id" options="{'no_create': True}"/>
