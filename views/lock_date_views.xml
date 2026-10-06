@@ -30,8 +30,9 @@
             <group>
               <field name="date_field_id" options="{'no_create': True}"/>
               <field name="lock_date"/>
-              <field name="record_filter"
-                     placeholder="[('move_type', '=', 'out_invoice')]"/>
+              <field name="model_name" invisible="1"/>
+              <field name="record_filter" widget="domain"
+                     options="{'model': 'model_name'}"/>
               <field name="active"/>
             </group>
           </group>

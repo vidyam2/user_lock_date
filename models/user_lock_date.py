@@ -19,8 +19,6 @@ def _make_create_wrapper(origin):
     @api.model_create_multi
     def create(self, vals_list, **kw):
         records = origin(self, vals_list, **kw)
-        # checked after create so computed dates are the real ones;
-        # the error rolls back the whole transaction
         self.env['user.lock.date']._check_records(records, 'create')
         return records
     return create
@@ -70,9 +68,9 @@ class UserLockDate(models.Model):
         string='Lock Date', required=True,
         help='Documents dated on or before this date are blocked.')
     record_filter = fields.Char(
-        string='Record Filter',
-        help="Optional domain to limit the rule, for example "
-             "[('move_type', '=', 'out_invoice')] for customer invoices only.")
+    string='Record Filter',
+    help="Optional filter to limit which records the rule applies to. "
+         "Leave empty to apply the rule to all records.")
     active = fields.Boolean(default=True)
 
     @api.depends('model_id', 'method_name', 'lock_date')

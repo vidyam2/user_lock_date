@@ -1,6 +1,14 @@
 Change Log
 ==========
 
+20.0.2.1 (2026-10-06)
+---------------------
+
+* Record Filter is now chosen by clicking, not typed by hand.
+* Changing the Model now also clears the Date Field and Record Filter.
+* Checking the filter now uses one shared method in the code.
+* Record Filter help text no longer mentions one specific model.
+
 20.0.2.0 (2026-10-06)
 ---------------------
 
